@@ -1,0 +1,5 @@
+name: ProtectionsLib
+version: ${project.version}
+author: minnymin3
+main: net.minezrc.protections.ProtectionsLib
+load: startup

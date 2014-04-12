@@ -1,0 +1,80 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <properties>
+    <bukkit.version>1.7.8-R0.1-SNAPSHOT</bukkit.version>
+  </properties>
+  
+  <artifactId>ProtectionsLib</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <groupId>net.minezrc.protections</groupId>
+  
+  <licenses>
+    <license>
+      <name>GNU General Public License 3.0</name>
+      <distribution>repo</distribution>
+      <comments>License on all new contributions</comments>
+    </license>
+  </licenses>
+  
+  <repositories>
+    <repository>
+      <id>bukkit</id>
+      <url>http://repo.bukkit.org/content/groups/public/</url>
+    </repository>
+  </repositories>
+  
+  <dependencies>
+    <dependency>
+      <groupId>org.bukkit</groupId>
+      <artifactId>bukkit</artifactId>
+      <version>${bukkit.version}</version>
+      <scope>provided</scope>
+      <optional>true</optional>
+    </dependency>
+  </dependencies>
+  
+  <build>
+    <resources>
+      <resource>
+        <targetPath>.</targetPath>
+        <directory>${basedir}/src/main/resources/</directory>
+        <filtering>true</filtering>
+        <includes>
+          <include>*.yml</include>
+        </includes>
+      </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.3.2</version>
+        <configuration>
+          <source>1.6</source>
+          <target>1.6</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>com.googlecode.addjars-maven-plugin</groupId>
+          <artifactId>addjars-maven-plugin</artifactId>
+   	      <version>1.0.5</version>
+  	      <executions>
+            <execution>
+   	          <goals>
+   	            <goal>add-jars</goal>
+              </goals>
+              <configuration>
+              <resources>
+                <resource>
+                  <directory>${basedir}/libs</directory>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+  
+</project>
